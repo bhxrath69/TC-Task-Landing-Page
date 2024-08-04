@@ -1,0 +1,241 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Set background color of the entire page */
+body {
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for contrast */
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #1a1a1a;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff9800;
+}
+
+.top-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.top-bar a:hover {
+    color: #ff9800;
+    background-color: #333333;
+    border-color: #ff9800;
+}
+
+.top-bar a.home-link {
+    background-color: #ff9800;
+    color: #1a1a1a;
+    border-color: #ff9800;
+}
+
+.right-links, .left-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link i {
+    font-size: 24px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.social-link i:hover {
+    color: #ff9800; /* Changes color on hover */
+}
+
+/* Event Poster Panel */
+.poster-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Occupy slightly less than full viewport height */
+    padding: 0;
+    margin-top: 60px; /* Adds margin to ensure the top bar is visible */
+}
+
+.poster-panel img {
+    max-width: 80%; /* Reduced size for better visibility */
+    max-height: 80vh; /* Adjusted height to fit within the viewport */
+    object-fit: cover;
+    border-radius: 10px; /* Adds a slight border radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Adds a shadow for depth */
+}
+
+/* Events Slideshow Panel */
+.events-slideshow {
+    background-color: #0d0d0d; /* Darker background to contrast with poster */
+    padding: 50px 0;
+    text-align: center;
+    margin-top: -10vh; /* Adjusted margin for smoother transition */
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #ff9800;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Navigation dots */
+.dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Proshows Panel */
+.proshows-panel {
+    display: flex;
+    padding: 50px 0;
+}
+
+.left-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proshow-container {
+    position: relative;
+    max-width: 80%;
+}
+
+.proshow-slide {
+    display: none;
+    width: 100%;
+}
+
+.proshow-slide img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    margin-top: -22px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+}
+
+.right-half {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.proshow-description {
+    width: 80%;
+}
+
+.proshow-text {
+    display: none;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-bar a {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .poster-panel {
+        height: calc(60vh - 60px); /* Adjusted height for smaller screens */
+    }
+
+    .proshows-panel {
+        flex-direction: column;
+    }
+
+    .right-half {
+        padding: 20px;
+    }
+}
